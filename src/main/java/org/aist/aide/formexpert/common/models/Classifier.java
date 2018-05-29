@@ -17,7 +17,6 @@ public class Classifier implements Comparable<Classifier> {
         return score;
     }
 
-
     @Override
     public int compareTo(Classifier o) {
         var result = score - o.getScore();

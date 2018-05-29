@@ -5,31 +5,30 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Mapping implements Serializable {
-    private long id;
-    private String label;
-    private String type;
-    private TreeSet<Classifier> classifiers;
-    private String defaultAbstration;
+    protected String label;
+    protected String type;
+    protected TreeSet<Classifier> classifiers;
+    protected String defaultAbstraction;
 
-    public Mapping(long id, String label, String type, TreeSet<Classifier> classifiers, String defaultAbstration) {
-        this.id = id;
+    public Mapping(String id, String label, String type, TreeSet<Classifier> classifiers, String defaultAbstraction) {
         this.label = label;
         this.type = type;
         this.classifiers = classifiers;
-        this.defaultAbstration = defaultAbstration;
+        this.defaultAbstraction = defaultAbstraction;
     }
 
     public Mapping(String label, String type) {
         this.label = label;
         this.type = type;
+        classifiers = new TreeSet<>();
+    }
+
+    public Mapping() {
+        classifiers = new TreeSet<>();
     }
 
     public String getDefaultAbstraction() {
-        return defaultAbstration;
-    }
-
-    public long getId() {
-        return id;
+        return defaultAbstraction;
     }
 
     public String getLabel() {
@@ -40,7 +39,7 @@ public class Mapping implements Serializable {
         return type;
     }
 
-    public Set<Classifier> getClassifiers() {
+    public TreeSet<Classifier> getClassifiers() {
         return classifiers;
     }
 }
